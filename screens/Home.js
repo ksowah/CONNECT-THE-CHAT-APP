@@ -1,4 +1,4 @@
-import { Text, SafeAreaView, ScrollView, View, TouchableOpacity } from 'react-native'
+import { Text, SafeAreaView, ScrollView, View, TouchableOpacity, StatusBar } from 'react-native'
 import React, { useEffect, useLayoutEffect, useState } from 'react'
 import CustomListItem from '../components/CustomListItem'
 import tw from "twrnc"
@@ -18,14 +18,17 @@ const Home = ({navigation}) => {
   
     
     useEffect(() => {
-      onSnapshot(
-        query(collection(db, "chats")),
+      const unsubscribe =  onSnapshot(
+        query(collection(db, "chats"), orderBy("timestamp", "desc")),
         (snapshot) => {
           setChats(snapshot.docs)
         })
+
+        return unsubscribe
     }, [db])
 
 
+    
   const signUserOut = () => {
     signOut(auth).then(() => {
       // Sign-out successful.
@@ -48,7 +51,7 @@ const Home = ({navigation}) => {
           <TouchableOpacity activeOpacity={0.5} onPress={signUserOut}>
             <Avatar 
               rounded
-              source={{uri: auth?.currentUser?.photoURL}} 
+              source={{uri: auth?.currentUser?.photoURL}}  
               />
           </TouchableOpacity>
         </View>
@@ -76,6 +79,7 @@ const Home = ({navigation}) => {
 
   return (
     <SafeAreaView>
+      <StatusBar style="dark" />
       <ScrollView style={tw`h-[100%]`} >
         {
           chats.map((chat) => (
