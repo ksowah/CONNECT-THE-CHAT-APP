@@ -5,7 +5,7 @@ import { Input } from '@rneui/themed'
 import { Button } from '@rneui/base'
 import { Ionicons } from '@expo/vector-icons'; 
 import { db } from '../firebase'
-import { addDoc, collection } from 'firebase/firestore'
+import { addDoc, collection, serverTimestamp } from 'firebase/firestore'
 
 const AddChat = ({navigation}) => {
 
@@ -22,8 +22,8 @@ const AddChat = ({navigation}) => {
         try {
             const docRef = await addDoc(collection(db, "chats"), {
               chatName: input,
+              timestamp: serverTimestamp()
             });
-            console.log("Document written with ID: ", docRef.id);
             navigation.goBack()
           } catch (e) {
             console.error("Error adding document: ", e);
@@ -45,9 +45,10 @@ const AddChat = ({navigation}) => {
       <Button 
         title={"Create new Chat"}
         onPress={createChat}
+        disabled={!input}
       />
     </View>
   )
-}
+} 
 
 export default AddChat
