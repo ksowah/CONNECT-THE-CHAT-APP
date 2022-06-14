@@ -6,6 +6,7 @@ import { Button } from '@rneui/base'
 import { Ionicons } from '@expo/vector-icons'; 
 import { db } from '../firebase'
 import { addDoc, collection, serverTimestamp } from 'firebase/firestore'
+import { StatusBar } from 'expo-status-bar'
 
 const AddChat = ({navigation}) => {
 
@@ -32,23 +33,25 @@ const AddChat = ({navigation}) => {
 
   return (
     <View style={tw`bg-white h-[100%] p-4`}>
+      <StatusBar style='light' />
       <Input 
-        placeholder='Enter a chat name'
+        placeholder='Start a new chat'
         value={input}
         onChangeText= {(text) => setInput(text)}
         leftIcon={
-            <Ionicons name="chatbubbles-sharp" size={24} color="black" />
+          <Ionicons name="chatbox-sharp" size={24} style={tw`text-gray-600`} />
         }
         onSubmitEditing={createChat}
       />
 
       <Button 
-        title={"Create new Chat"}
+        title={"Create Chat"}
+        color={"#2C69D1"}
         onPress={createChat}
         disabled={!input}
       />
     </View>
-  )
+  )                                         
 } 
 
 export default AddChat
