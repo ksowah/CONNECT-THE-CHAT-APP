@@ -11,3 +11,14 @@
   <img src = "https://github.com/ksowah/CONNECT-THE-CHAT-APP/blob/UI-updates/assets/grab_image.jpg?raw=true" width = '400' />
   <img src = "https://github.com/ksowah/CONNECT-THE-CHAT-APP/blob/UI-updates/assets/update_image.jpg?raw=true" width = '400' />
 </div>
+
+<div style = "display: flex">
+  <img src = "https://github.com/ksowah/CONNECT-THE-CHAT-APP/blob/UI-updates/assets/chats_screen.jpg?raw=true" width = '400' />
+  <img src = "https://github.com/ksowah/CONNECT-THE-CHAT-APP/blob/UI-updates/assets/chat_screen.jpg?raw=true" width = '400' />
+</div>
+
+<div style = "display: flex align-items: center">
+  <img src = "https://github.com/ksowah/CONNECT-THE-CHAT-APP/blob/UI-updates/assets/newChat_screen.jpg?raw=true" width = '400' />
+</div>
+
+
