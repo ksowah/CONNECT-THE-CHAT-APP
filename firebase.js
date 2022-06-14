@@ -1,21 +1,24 @@
+// Import the functions you need from the SDKs you need
+
 import { initializeApp, getApp, getApps } from "firebase/app";
 import { getFirestore } from 'firebase/firestore'
 import { getAuth } from "firebase/auth";
-// import { getStorage } from 'firebase/storage'
+import { getStorage } from 'firebase/storage'
 
-// Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDd8cy3BQ3MpO8t2xKmOkmMWrUtjGxt_AU",
-  authDomain: "signal-fd901.firebaseapp.com",
-  projectId: "signal-fd901",
-  storageBucket: "signal-fd901.appspot.com",
-  messagingSenderId: "199441386270",
-  appId: "1:199441386270:web:2bc8835449da4d0043170f"
+  apiKey: "AIzaSyBKYeBColkGBaVhH068Fbb5bAj5G3XvKz8",
+  authDomain: "connect-bacc3.firebaseapp.com",
+  projectId: "connect-bacc3",
+  storageBucket: "connect-bacc3.appspot.com",
+  messagingSenderId: "416147349063",
+  appId: "1:416147349063:web:cdddd0d5bbe8c890e85b62",
+  storageBucket: "connect-bacc3.appspot.com"
 };
 
 // Initialize Firebase
 const app = !getApps().length ? initializeApp(firebaseConfig) : getApp()
-const db = getFirestore(app)
+const db = getFirestore() 
 const auth = getAuth()
+const storage = getStorage()
 
-export { db, auth }
+export { db, auth, storage }
