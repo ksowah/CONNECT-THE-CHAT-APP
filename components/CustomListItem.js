@@ -32,8 +32,7 @@ const CustomListItem = ({id, chat, enterChat}) => {
         rounded
         source={{
           uri:
-            chatMessages[0]?.data().photoURL ||
-          "https://www.pngall.com/wp-content/uploads/5/Profile-Avatar-PNG.png"
+            chatMessages[0]?.data()?.photoURL || "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTu51XqkERN4KCU2HF526phPswwmMY9qjexFA&usqp.jpg"
         }}
       />
 
@@ -42,7 +41,8 @@ const CustomListItem = ({id, chat, enterChat}) => {
           {chat?.chatName}
         </ListItem.Title>
         <ListItem.Subtitle numberOfLines={1} ellipsizeMode="tail">
-            {chatMessages[latestMessage]?.data().displayName}: {chatMessages[latestMessage]?.data().message}
+            {latestMessage === -1 && "No messages here yet" } 
+            {chatMessages[latestMessage]?.data()?.displayName } {latestMessage !== -1 && ":"} {chatMessages[latestMessage]?.data()?.message}
         </ListItem.Subtitle>
       </ListItem.Content>
     </ListItem>
