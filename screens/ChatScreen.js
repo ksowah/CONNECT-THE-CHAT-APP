@@ -43,8 +43,7 @@ const ChatScreen = ({ navigation, route }) => {
 						rounded
 						source={{
 							uri:
-								messages[0]?.data().photoURL ||
-								"https://www.pngall.com/wp-content/uploads/5/Profile-Avatar-PNG.png",
+								messages[0]?.data()?.photoURL || "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTu51XqkERN4KCU2HF526phPswwmMY9qjexFA&usqp.jpg"
 						}}
 					/>
 					<Text style={tw`text-white ml-2 font-bold`}>
@@ -81,8 +80,7 @@ const ChatScreen = ({ navigation, route }) => {
 			email: auth.currentUser.email,
 			photoURL: auth.currentUser.photoURL,
 		});
-
-		setInput("");
+ 
 	};
 
 	useLayoutEffect(() => {
@@ -91,7 +89,7 @@ const ChatScreen = ({ navigation, route }) => {
 			(snapshot) => {
 				setMessages(snapshot.docs);
 			}
-		);
+		)
 
 		return unsubscribe;
 	}, [route]);
@@ -107,7 +105,7 @@ const ChatScreen = ({ navigation, route }) => {
 				<>
 					<ScrollView contentContainerStyle={tw`pt-2`}>
 						{messages.map((message) =>
-							message.data().email === auth.currentUser.email ? (
+							message?.data()?.email === auth.currentUser.email ? (
 								<View
 									key={message.id}
 									style={tw`py-3 px-2 bg-[#ececec] flex self-end rounded-xl m-2 mb-3 max-w-[80%] relative`}
@@ -124,10 +122,10 @@ const ChatScreen = ({ navigation, route }) => {
 											bottom: -15,
 											right: -5,
 										}}
-										source={{ uri: message.data().photoURL }}
+										source={{ uri: message?.data()?.photoURL || "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTu51XqkERN4KCU2HF526phPswwmMY9qjexFA&usqp.jpg" }}
 									/>
 									<Text style={tw`text-black font-500 ml-4 mb-3`}>
-										{message.data().message}
+										{message?.data()?.message}
 									</Text>
 								</View>
 							) : (
@@ -147,9 +145,9 @@ const ChatScreen = ({ navigation, route }) => {
 											bottom: -15,
 											right: -5,
 										}}
-										source={{ uri: message.data().photoURL }}
+										source={{ uri: message?.data()?.photoURL || "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTu51XqkERN4KCU2HF526phPswwmMY9qjexFA&usqp.jpg" }}
 									/>
-									<Text style={tw`text-white text-[1rem] font-[500] ml-4 mb-3`}>
+									<Text style={tw`text-white text-[1rem] font-bold ml-4 mb-3`}>
 										{message.data().message}
 									</Text>
 									<Text style={tw`text-gray-300`}>
