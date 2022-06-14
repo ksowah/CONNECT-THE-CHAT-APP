@@ -1,0 +1,13 @@
+{
+    "expo": {
+      "plugins": [
+        [
+          "expo-image-picker",
+          {
+            "photosPermission": "Allow CoNNECT to access your photos",
+            "cameraPermission": "Allow CoNNECT to access your camera"
+          }
+        ]
+      ]
+    }
+  }
