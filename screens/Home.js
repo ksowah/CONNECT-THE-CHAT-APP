@@ -32,10 +32,9 @@ const Home = ({navigation}) => {
   const signUserOut = () => {
     signOut(auth).then(() => {
       // Sign-out successful.
-      navigation.replace("Login")
+      navigation.replace("Connect")
     }).catch((error) => {
       alert(error)
-      // An error happened.
     });
     
   }
@@ -79,7 +78,7 @@ const Home = ({navigation}) => {
 
   return (
     <SafeAreaView>
-      <StatusBar style="dark" />
+      <StatusBar barStyle={'dark-content'}/>
       <ScrollView style={tw`h-[100%]`} >
         {
           chats.map((chat) => (

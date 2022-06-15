@@ -6,6 +6,7 @@ import tw from "twrnc";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
+import { Text } from "@rneui/themed";
 
 const Login = ({ navigation }) => {
 	const [email, setEmail] = useState("");
@@ -40,7 +41,7 @@ const Login = ({ navigation }) => {
 		>
 			<StatusBar style="light" />
 			<Image
-				source={require("../assets/signal-logo.png")}
+				source={require("../assets/connect_logo.png")}
 				style={tw`h-[15rem] w-[15rem] `}
 			/>
 
@@ -64,18 +65,17 @@ const Login = ({ navigation }) => {
 
 			<Button
 				style={tw`w-[13rem]`}
-				color={"#2c6bed"}
+				color={"#2C69D1"}
 				title={"Login"}
+				titleStyle={tw`font-bold text-gray-200`}
 				onPress={signIn}
 			/>
-			<Button
-				style={tw`w-[13rem] mt-4`}
-				title={"Register"}
-				type="outline"
-				onPress={() => navigation.navigate("Register")}
-			/>
 
-			<View style={tw`h-[5rem]`} />
+			<Text style={tw`mt-4 text-sm text-gray-500`}>
+				New to CONNECT? Create an account <Text style={tw`font-bold underline text-sky-600`} onPress={() => navigation.navigate("Register")}>here</Text>
+			</Text>
+
+			<View style={tw`h-[10rem]`} />
 		</KeyboardAvoidingView>
 	);
 };
