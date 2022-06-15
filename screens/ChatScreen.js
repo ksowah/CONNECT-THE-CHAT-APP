@@ -6,7 +6,6 @@ import {
 	KeyboardAvoidingView,
 	ScrollView,
 	TextInput,
-	TouchableWithoutFeedback,
 	Keyboard,
 } from "react-native";
 import React, { useLayoutEffect, useState } from "react";
